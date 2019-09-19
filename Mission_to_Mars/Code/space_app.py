@@ -3,6 +3,7 @@ from flask_pymongo import PyMongo
 import scrape_news
 import scrape_image
 import scrape_weather
+import scrape_table
 
 
 app = Flask(__name__)
@@ -18,8 +19,9 @@ def home():
     space_data = mongo.db.mars_db.find_one()
     image_data = mongo.db.news_db.find_one()
     weather_mars = mongo.db.weather_db.find_one()
+    mars_table = mongo.db.table_db.find_one()
 
-    return render_template("index.html", planet=space_data, galaxy=image_data, weather=weather_mars)
+    return render_template("index.html", planet=space_data, galaxy=image_data, weather=weather_mars, table=mars_table)
 
 
 @app.route("/scrape")
@@ -27,15 +29,18 @@ def scrape():
     mars_db = mongo.db.mars_db
     news_db = mongo.db.news_db
     weather_db = mongo.db.weather_db
+    table_db = mongo.db.table_db
 
     nasa_news = scrape_news.scrape_news()
     nasa_image = scrape_image.scrape_image()
     weather_data = scrape_weather.scrape_weather()
+    table_data = scrape_table.scrape_table()
 
 
     mars_db.update({}, nasa_news, upsert=True)
     news_db.update({}, nasa_image, upsert=True)
     weather_db.update({}, weather_data, upsert=True)
+    table_db.update({}, table_data, upsert=True)
 
 
     return redirect("/")

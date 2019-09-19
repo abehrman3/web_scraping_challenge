@@ -43,14 +43,14 @@ def scrape_news():
     
      # Store data in a dictionary
     nasa_news = {
-        "news_article": news_article,
-        "news_p": news_p,
+        "news_article": mars_news,
+        "news_p": mars_paragraph
     }
     print(nasa_news)
     browser.quit()
     
     #return results
-    return news_article.text, news_p.text
+    return nasa_news
 
     
 

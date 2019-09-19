@@ -43,12 +43,14 @@ def scrape_weather():
         
     #Provide me the first instance of a weather tweet 
     mars_weather = weather_data[0]
+    weather_data = {"mars_weather": mars_weather
+    }
     print(mars_weather)
     
     browser.quit()
     
     #return results
-    return mars_weather
+    return weather_data
     
 
 

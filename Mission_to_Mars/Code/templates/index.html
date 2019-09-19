@@ -15,19 +15,32 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
+
+    <div class='container-fluid'>
     <h2>Latest Mars News:</h2>
     <h3>Headline: {{ planet.news_article}}</h3>
     <h4> {{ planet.news_p}} </h4
+    </div>
 
 
-    <h5> Mars Featured Image:</h5
-    <img src="{{ planet.featured_image_url }}" alt="Mars Featured Image">
+    <div class='container-fluid'>
 
+    <h1>Weather on Mars:</h1
+
+    <h2> {{ weather.mars_weather}}</h2
+
+    <div class='container-fluid'>
+
+
+    <h1> Mars Featured Image:</h1>
+
+    <img src="{{ galaxy.featured_image_url }}" alt="Mars Featured Image">
   </div>
-  </div>
+</div>
+
 
   <div class="container-fluid">
-      <h5>Mars Facts</h5>
+      <h1>Mars Fact Table:</h1>
       <table border="1" class="dataframe">
           <thead>
             <tr style="text-align: right;">
@@ -66,6 +79,7 @@
             </tr>
           </tbody>
         </table>
+      </div>
 
 
 </body>

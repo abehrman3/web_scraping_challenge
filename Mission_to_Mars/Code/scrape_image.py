@@ -39,11 +39,13 @@ def scrape_image():
     # Find the featured image available
     mars_image_url = soup.find('img', class_='main_image')['src']
     featured_image_url=(f'https://www.jpl.nasa.gov{mars_image_url}')
-    print(featured_image_url)
+    nasa_image = {
+        "featured_image_url": featured_image_url
+    }
     browser.quit()
     
     #return results
-    return featured_image_url.text
+    return nasa_image
 
 
 # In[4]:
